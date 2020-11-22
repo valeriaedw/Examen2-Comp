@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html">
+    <title>WorkShops</title>
+</head>
+<body>
+
+
+<div>
+    <h1>Insertar WorkShop</h1>
+    <form action="#" th:action="@{/registra_workshops}" th:object="${workShop}" method="post">
+        <label for="name">Nombre</label>
+        <input type="text" th:field="*{name}" id="name">
+        <label>Autores</label>
+        <select th:field="*{autor}">
+            <option th:value="'Valeria Edwards'" th:text="'Valeria Edwards'"></option>
+            <option th:value="'Mario Aguero'" th:text="'Mario Aguero'"></option>
+            <option th:value="'Pablo Perez'" th:text="'Pablo Perez'"></option>
+            <option th:value="'Maria Torres'" th:text="'Maria Torres'"></option>
+        </select>
+        <label for="objetivo">Objetivo</label>
+        <input type="text" th:field="*{objetivo}" id="objetivo">
+        <label for="categories">Categorias</label>
+        <select id="categories" th:field="*{category.id}">
+            <option th:each="value:${category}" th:value="${value.id}" th:text="${value.name}"></option>
+        </select>
+        <label for="">Keywords</label>
+        <input type="text" th:field="*{keyword1}" id="">
+        <input type="text" th:field="*{keyword2}" id="">
+        <input type="text" th:field="*{keyword3}" id="">
+
+        <input type="submit" value="Registrar">
+    </form>
+
+</div>
+</body>
+</html>

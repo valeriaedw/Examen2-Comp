@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html"></meta>
+    <title>Detalle WorkShop</title>
+</head>
+
+<body>
+Name:<span th:text="${workShopData.name}"></span><br/>
+Autor:<span th:text="${workShopData.autor}"></span><br/>
+Objetivo:<span th:text="${workShopData.objetivo}"></span><br/>
+Categoría:<span th:text="${workShopData.category.name}"></span><br/>
+Keywords:<span th:text="${workShopData.keyword1 + ' '+workShopData.keyword2 +' '+ workShopData.keyword3}"></span><br/>
+
+Actividades:
+<div th:each="entry : ${workShopData.activity}">
+    <ul>
+        <li><span th:text="${entry.name}">Name</span></li>
+    </ul>
+</div>
+<a th:href="@{/registra_actividades/{id}(id=${workShopData.id})}">Agregar actividad</a>
+<a th:href="@{/report/{id}(id=${workShopData.id})}">Descargar Word</a>
+<a href="/">Volver al index</a>
+</body>
+</html>

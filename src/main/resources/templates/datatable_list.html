@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html">
+    <title>WorkShops</title>
+</head>
+<body>
+
+<div>
+
+    <h1>Lista de Workshops</h1>
+
+    <table th:each="entry : ${workshop}">
+        <tr>
+            <th>Name</th>
+            <th>Autor</th>
+            <th>Objetivo</th>
+            <th>Categoría</th>
+            <th>Keywords</th>
+            <th>Duracion Total</th>
+            <th>Acciones</th>
+        </tr>
+        <tr>
+            <td th:text="${entry.name}"></td>
+            <td th:text="${entry.autor}"></td>
+            <td th:text="${entry.objetivo}"></td>
+            <td th:text="${entry.category.name}"></td>
+            <td th:text="${entry.keyword1 +' '+ entry.keyword2 +' '+ entry.keyword3}"></td>
+            <td th:text="${entry.duracionTotal}"></td>
+            <td><a th:href="@{/editar_workshops/{id}(id=${entry.id})}">Editar</a></td>
+            <td><a th:href="@{/detalle_workshop/{id}(id=${entry.id})}">Detalle</a></td>
+
+        </tr>
+    </table>
+
+</div>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+
+</body>
+</html>
